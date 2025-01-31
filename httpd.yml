@@ -1,0 +1,11 @@
+---
+ - name: Installing htppd on Rocky linux
+   hosts: all
+   become: yes
+   gather_facts: false
+   tasks:
+           - yum:
+                   name: httpd
+                   state: latest
+
+...

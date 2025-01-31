@@ -1,0 +1,17 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+   - name: installing updates in Debian and ubuntu
+     tags: always
+     apt:
+      update-cache: yes
+      upgrade: dist
+     #when: ansible_distribution=='Debian/Ubuntu'
+   - name: installing webservers in Ubunutu
+     tags: always
+     apt:
+      name: apache2
+      state: latest
+     #when: ansible_distribution=='Debian/Ubuntu'

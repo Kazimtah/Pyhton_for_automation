@@ -1,0 +1,28 @@
+---
+ - hosts: all
+   become: yes
+   gather_facts: yes
+   tasks:
+           - yum:
+                   name: 
+                    - wget
+                    - httpd
+                   state: absent
+             when: ansible_os_family == "Redhat" 
+           - apt:
+                   name:
+                    - apache2
+                     
+
+                   state: absent
+             when: ansible_os_family == "Debian"
+
+           - zypper: 
+                     name:
+                       - wget
+                       - httpd
+
+                     state: latest
+             when: ansible_os_family == "Suse"
+
+...

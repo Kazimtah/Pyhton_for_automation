@@ -1,0 +1,13 @@
+---
+ 
+ - hosts: all
+   become: yes
+   tasks:
+   - name: removing apache2 server from the client server
+     tags: Removing apache2 with it's configurations
+     apt:
+      name: apache2 
+      autoremove: yes
+      purge: yes
+      state: absent
+     when: ansible_distribution=='Ubuntu'

@@ -1,0 +1,13 @@
+---
+ - name: This is the first playbook to get it's variable value through command line
+   hosts: localhost
+   gather_facts: false
+   tasks:
+           - debug:
+               msg:
+                       - "The value x is :{{x}}"
+                       - "the value y is :{{y}}"
+
+
+
+... 

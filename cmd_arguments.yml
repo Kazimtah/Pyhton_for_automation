@@ -1,0 +1,20 @@
+---
+# name: The first playbook for cmd arguments
+- hosts: all
+  gather_facts: false
+  vars:
+           x: 24
+           y: 34
+           
+
+
+  tasks:
+          debug:
+                  msg: 
+                   - var: x 
+                   - var: y 
+                  
+
+
+
+...

@@ -1,0 +1,36 @@
+---
+#- name: The first playbook for varialbe concept 
+ - hosts: all
+   gather_facts: yes
+   vars_files:
+           - variable-values.json
+           - variable-values.yml
+   vars_prompt:
+         - name: user_name
+           prompt: Enter the username that was provided by your sysadmin 
+           private: false
+         - name: user_pass
+           prompt: Enter the password that you set by yourself.
+           private: yes
+   tasks:
+         - name: Using the debug modules to present variable values
+           debug:
+                    msg: 
+                     - 'The Username is:{{ user_name }}'
+                     - 'My Userpassword is {{ user_pass }}'
+         - name: Using the debug modules to include variables from an external file
+           debug:
+                    msg:
+                         - "The value of x is {{ x }}"
+                         - "The value of y is {{ y }}"
+                         - "The value of packages is {{ packages }}"
+
+
+
+         - name: Using debug modules to include a file a json formate
+           debug:
+                  msg: 
+                    - var: "{{ list }}"
+                    - var: "{{ Mapped }}"
+
+...

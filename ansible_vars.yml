@@ -1,0 +1,10 @@
+---
+- name: The playbook for the hostars
+  hosts: localhost
+  gather_facts: no
+  tasks:
+          - debug: var=inventory_hostname 
+          - debug: var=hostvars
+
+
+...

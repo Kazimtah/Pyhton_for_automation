@@ -1,0 +1,27 @@
+---
+ - name: Play for the ariatheric operator
+   hosts: all
+   gather_facts: false
+   var_prompt:
+        - name: x
+          prompt: Please Enter a value for x
+          private: no
+        - name: y
+          prompt: Please Enter a value for y
+          private: no
+          #  vars:
+          #y: 72 
+          #x: 56
+   tasks:
+          - name: Displaying the valuses
+            debug:
+                    msg:
+                            - "the value of {{x}}"
+                            - "the value of {{y}}"
+                            - "{{x}} - {{y}} = {{x+y}}"
+                            - "{{y}}- {{x}} = {{y-x}}"
+                            - "{{x}} * {{y}} = {{y*x}}"  
+
+
+
+...

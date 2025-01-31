@@ -1,0 +1,18 @@
+---
+ - name: Comparison playbook
+   hosts: localhost
+   gather_facts: yes
+   vars:
+           x: 45
+           y: 76
+   tasks:
+
+           - debug: 
+              msg: 
+               - "x==y: {{x==y}}"
+
+
+
+
+
+...
